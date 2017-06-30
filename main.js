@@ -7,11 +7,12 @@ class Car {
     this.location = location
     this.$car = $car
   }
-  static start(car) {
-    const intervalId = setInterval(() => car.move(), 16)
+  start() {
+    const intervalId = setInterval(() => this.move(), 16)
+    this.intervalId = intervalId
   }
-  static stop(car) {
-    clearInterval(intervalId)
+  stop() {
+    clearInterval(this.intervalId)
   }
   turn(newDirection) {
     this.direction = newDirection
@@ -36,4 +37,4 @@ class Car {
   }
 }
 
-const f1Car = new Car('east', 0, [0, 0], document.getElementById('car'))
+const f1Car = new Car('east', 1, [0, 0], document.getElementById('car'))
