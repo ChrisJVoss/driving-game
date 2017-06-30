@@ -10,8 +10,16 @@ class Car {
       switch (event.keyCode) {
         case 113 : this.start()
           break
-        case 119 : this.stop()
+        case 101 : this.stop()
           break
+        case 97 : this.turn('west')
+            break
+        case 119 : this.turn('north')
+            break
+        case 100 : this.turn('east')
+            break
+        case 115 : this.turn('south')
+            break
       }
     })
   }
@@ -23,6 +31,36 @@ class Car {
     clearInterval(this.intervalId)
   }
   turn(newDirection) {
+    switch (newDirection) {
+      case 'north' : switch (this.direction) {
+        case 'east' : this.$car.style.transform = 'rotate(270deg)'
+          break
+        case 'west' : this.$car.style.transform = 'rotate(270deg)'
+          break
+      }
+        break
+      case 'west' : switch (this.direction) {
+        case 'north' : this.$car.style.transform = 'rotate(180deg)'
+          break
+        case 'south' : this.$car.style.transform = 'rotate(180deg)'
+          break
+      }
+        break
+      case 'south' : switch (this.direction) {
+        case 'east' : this.$car.style.transform = 'rotate(90deg)'
+          break
+        case 'west' : this.$car.style.transform = 'rotate(90deg)'
+          break
+      }
+        break
+      case 'east' : switch (this.direction) {
+        case 'north' : this.$car.style.transform = 'rotate(0deg)'
+          break
+        case 'south' : this.$car.style.transform = 'rotate(0deg)'
+          break
+      }
+        break
+    }
     this.direction = newDirection
   }
   accelerate(amount) {
