@@ -8,7 +8,10 @@ class Car {
     this.$car = $car
   }
   static start(car) {
-    setInterval(() => car.move(), 16)
+    const intervalId = setInterval(() => car.move(), 16)
+  }
+  static stop(car) {
+    clearInterval(intervalId)
   }
   turn(newDirection) {
     this.direction = newDirection
