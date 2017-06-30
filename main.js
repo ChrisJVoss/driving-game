@@ -69,12 +69,16 @@ class Car {
   move() {
     switch (this.direction) {
       case 'north' : this.location[1] -= this.speed
+      this.$car.style.top = this.location[1] + 'px'
         break
       case 'west' : this.location[0] -= this.speed
+        this.$car.style.left = this.location[0] + 'px'
         break
       case 'south' : this.location[1] += this.speed
+        this.$car.style.top = this.location[1] + 'px'
         break
       case 'east' : this.location[0] += this.speed
+        this.$car.style.left = this.location[0] + 'px'
         break
     }
   }
