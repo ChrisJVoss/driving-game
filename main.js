@@ -6,6 +6,14 @@ class Car {
     this.speed = speed
     this.location = location
     this.$car = $car
+    window.addEventListener('keypress', event => {
+      switch (event.keyCode) {
+        case 113 : this.start()
+          break
+        case 119 : this.stop()
+          break
+      }
+    })
   }
   start() {
     const intervalId = setInterval(() => this.move(), 16)
